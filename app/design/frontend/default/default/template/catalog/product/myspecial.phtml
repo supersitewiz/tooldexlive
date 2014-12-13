@@ -1,0 +1,48 @@
+
+<?php $myproid= $this->getLayout()->createBlock('cms/block')->setBlockId('proid')->toHtml() ?>
+<?php
+ 
+ //$cusid=Mage::getModel('core/variable')-loadByCode('proid')-getValue('text')
+//echo $cusid;
+echo '<br/>';
+	 
+$model = Mage::getModel('catalog/product'); //getting product model
+ 
+$_product = $model->load($myproid); //getting product object for particular product id
+ 
+//echo $_product->getShortDescription(); //product's short description
+//echo $_product->getDescription(); // product's long description
+ //product name
+//echo $_product->getPrice(); //product's regular Price
+//echo $_product->getSpecialPrice(); //product's special Price
+ $prourl= $_product->getProductUrl(); //product url
+ $imgurl= $_product->getImageUrl(); //product's image url
+//echo $imgurl1= $_product->getSmallImageUrl(); //product's small image url
+//echo $imgurl2=$_product->getThumbnailUrl(); //product's thumbnail image url  
+ 
+// echo Mage::getModel('core/variable')-loadByCode('myspcial')-getValue('text')
+?>
+
+<div class="order_now_pro">
+<form action="<?php echo $prourl; ?>" method="post">
+<p><?php echo substr( $_product->getName() ,0 ,20 )?>..</p>
+<div class="order_image"><img src="<?php echo $imgurl;?>" alt=""  width="138" height="100" /></div>
+<input class="order_button" type="submit" name="submit" value="Order Now" />
+<div class="Clear">&nbsp;</div>
+</form>
+</div>
+
+
+
+
+<?php /*?>
+
+<table>
+<tr><td><?php echo $_product->getName()?></td></tr>
+<tr><td>price:<?php echo number_format($_product->getPrice(),2)?></td></tr>
+<?php if($_product->getSpecialPrice()!=''){?>
+<tr><td>special price:<?php echo number_format($_product->getSpecialPrice(),2)?></td></tr>
+<?php } ?>
+<tr><td><a href="<?php echo $prourl; ?>"><img src="<?php echo $imgurl;?>" width="120" height="135" /></a></td></tr>
+<tr><td><a href="<?php echo $prourl; ?>">Order now</a></td></tr>
+</table><?php */?>

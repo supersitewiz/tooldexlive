@@ -1,0 +1,12 @@
+<div class="block block-nav">
+    <div class="block-title">
+        <h2>Categories</h2>
+    </div>
+   <div class="block-content">
+        <ul id="nav_vert">
+        <?php foreach ($this->getStoreCategories() as $_category): ?>
+            <?php echo $this->drawItem($_category) ?>
+        <?php endforeach ?>
+        </ul>
+    </div>
+</div> 

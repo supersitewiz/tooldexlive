@@ -1,0 +1,342 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<?php
+// get the current Magento cart
+$cart = Mage::getSingleton('checkout/cart');
+
+if(isset($_POST['submit']))
+{
+
+	if($sku = $_POST['sku0']){
+		$sku = $_POST['sku0'];
+		$p = Mage::getModel('catalog/product')->getIdBySku($sku);
+
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p);
+	
+		$cart->addProduct($product, array( 
+			'qty' => $_POST['qty0'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+	}
+	
+	if($sku1 = $_POST['sku1']){
+	
+		$sku1 = $_POST['sku1'];
+		$p1 = Mage::getModel('catalog/product')->getIdBySku($sku1);
+
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p1);
+	
+		$cart->addProduct($product, array( 
+			'qty1' => $_POST['qty1'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+		}
+		
+		if($sku1 = $_POST['sku2']){
+		$sku1 = $_POST['sku2'];
+		$p1 = Mage::getModel('catalog/product')->getIdBySku($sku1);
+
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p1);
+	
+		$cart->addProduct($product, array( 
+			'qty1' => $_POST['qty2'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+		}
+		if($sku1 = $_POST['sku3']){
+		$sku1 = $_POST['sku3'];
+		$p1 = Mage::getModel('catalog/product')->getIdBySku($sku1);
+
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p1);
+	
+		$cart->addProduct($product, array( 
+			'qty1' => $_POST['qty3'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+		}
+		if($sku1 = $_POST['sku4']){
+		$sku1 = $_POST['sku4'];
+		$p1 = Mage::getModel('catalog/product')->getIdBySku($sku1);
+
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p1);
+	
+		$cart->addProduct($product, array( 
+			'qty1' => $_POST['qty4'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+		}
+
+// save the cart
+	$cart->save();
+	
+// very straightforward, set the cart as updated
+	Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
+	
+	
+	print("<script>window.location='http://192.168.1.50/mukesh/toold/index.php/checkout/cart/'</script>");
+} 
+?>
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+ 
+ 
+ 
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('') ?>magicslideshow/magicslideshow.css" media="screen"/>
+<script src="<?php echo $this->getSkinUrl('') ?>magicslideshow/magicslideshow.js" type="text/javascript"></script>
+<script type="text/javascript"> 
+            MagicSlideshow.options = {
+                'thumbnail-opacity': 1,
+                'thumbnails': 'inside',
+                'effect': 'fade',
+                'container-opacity': 0
+            }
+</script> 
+ 
+  
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('') ?>skins/jquery.jcarousel.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('') ?>skins/1/skin.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('') ?>skins/2/skin.css" />
+<script type="text/javascript">
+jQuery(document).ready(function() {
+jQuery('.first-and-second-carousel').jcarousel();	 
+});
+</script>
+		
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+
+<?php echo $this->getChildHtml('header') ?>
+<?php echo $this->getChildHtml('global_notices') ?>
+<?php echo $this->getChildHtml('global_messages') ?>
+
+
+<div class="middle_tol">
+<div class="maintol">
+<!--        middle left    -->
+<div class="middle_left">
+<?php /* ?>
+<div class="Categories">
+<h2>Categories</h2>
+<ul>
+<?php
+$children = Mage::getModel('catalog/category')->getCategories(2);
+foreach ($children as $category):
+$category=Mage::getModel('catalog/category')->load($category->getId());
+echo '<li><a href="' . $category->getUrl() . '">' . $category->getName() . '</a></li>'; ?>
+<?php
+endforeach;
+?>
+</ul>
+</div>
+<?php */ ?>
+<?php  echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_menu')->toHtml() ?>
+<?php echo $this->getChildHtml('left') ?>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_newsletter')->toHtml() ?>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('myspecial')->toHtml() ?>
+ 
+</div>
+
+<!--              end  middle left           -->
+
+
+<!--              middle right               -->
+
+<div class="middle_right" id="wrap">
+<div class="middle_top">
+<a href="<?php echo $this->getUrl('policies/') ?>">
+<div class="banner_tol">
+<!--<img src="<?php // echo $this->getSkinUrl('') ?>images/banner_img.png" width="582" height="288" alt=""> -->
+<div class="MagicSlideshow">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_banner')->toHtml() ?>
+</div>
+</div></a>
+<div class="order_now">
+<h2>Order Now</h2>
+
+<h3>Type It In </h3>
+<div class="sku_heding">QtyM</div>
+<div class="sku_heding">Name / SKU</div>
+
+
+<form method="post" >
+<input type="text" class="qty_input"  name="qty0"  required="required"/>
+<input type="text" value=""     name="sku0" class="sku_input" required="required" />
+
+
+<input type="text" class="qty_input"  name="qty1"  />
+<input type="text" value=""     name="sku1" class="sku_input"  />
+
+
+<input type="text" class="qty_input"  name="qty2"  />
+<input type="text" value=""     name="sku2" class="sku_input"  />
+
+
+<input type="text" class="qty_input"  name="qty3"  />
+<input type="text" value=""     name="sku3" class="sku_input"  />
+
+
+<input type="text" class="qty_input"  name="qty4"  />
+<input type="text" value=""     name="sku4" class="sku_input"  />
+
+<input type="submit"  name="submit" value="Add to cart" class="add_to_cart"/>
+<!--<a class="add_to_cart" href="#">Add to cart</a>-->
+</form>
+ 
+</div>
+</div>
+
+
+ 
+
+
+
+
+<div class="new_pro">
+<h2>New Products</h2>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('new_product')->toHtml() ?>
+<div class="Clear"></div>
+</div>
+
+<!--   Featured products         -->
+
+<div class="new_pro">
+<h2>Featured products</h2>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('featured_product')->toHtml() ?>
+<div class="Clear"></div>
+</div>
+
+
+<!--                 middle right                 -->
+</div>
+
+
+<!--                end middle right               -->
+
+</div>
+</div>
+
+
+
+<?php echo $this->getChildHtml('footer') ?>
+<?php echo $this->getChildHtml('before_body_end') ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php /*?>
+
+
+
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col2-left-layout">
+            <div class="main">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>    
+                </div>
+                <div class="col-left sidebar"> 
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_menu')->toHtml() ?>
+<?php echo $this->getChildHtml('left') ?>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_newsletter')->toHtml() ?>
+				</div>
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body><?php */?>
+</html>

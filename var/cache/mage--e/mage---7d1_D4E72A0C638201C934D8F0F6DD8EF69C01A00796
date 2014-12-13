@@ -1,0 +1,9 @@
+<script type="text/javascript">
+    //<![CDATA[
+    Mage.Cookies.set(
+        'PAGECACHE_ENV',
+            'a8fec30f0d17747db959fb8fef41cde9',
+        new Date(new Date().getTime() + 86400 * 1000)
+        );
+    //]]>
+</script>

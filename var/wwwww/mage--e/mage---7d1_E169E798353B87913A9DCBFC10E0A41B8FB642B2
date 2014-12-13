@@ -1,0 +1,9 @@
+<script type="text/javascript">
+    if (document.cookie.length && (document.cookie.indexOf('PAGECACHE_FORMKEY=') == -1)) {
+        Mage.Cookies.set(
+            'PAGECACHE_FORMKEY',
+            '<esi:include src="http://www.tooldex.com/varnishcache/getformkey/" />',
+            new Date(new Date().getTime() + 86400000)
+        );
+    }
+</script>

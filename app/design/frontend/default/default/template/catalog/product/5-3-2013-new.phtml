@@ -1,0 +1,92 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 3812 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+
+
+ 
+  
+
+
+
+
+
+
+<ul id="first-carousel" class="first-and-second-carousel jcarousel-skin-tango">
+
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<?php $_columnCount = $this->getColumnCount(); ?>
+<?php $i=0; foreach ($_products->getItems() as $_product): ?>
+<li><div class="new_promain">
+
+<div class="pro_img">
+<a href="<?php echo $_product->getProductUrl() ?>">
+<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135) ?>" width="124" height="109" alt="" border="1"></a></div> 
+<div class="pro_detail">
+<p><?php $name_p = $this->htmlEscape($_product->getName());
+    if(strlen($name_p) > 38)
+	{
+	echo substr($name_p ,0 ,35).'...';
+	}
+	else
+	{
+	echo $name_p;
+	}
+
+ ?></p>
+<div class="pro_mrp"><?php echo $this->getPriceHtml($_product, true, '-new') ?></div>
+<input type="button" class="add_to_cart" value="Add to cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"/>
+
+</div>
+<div class="Clear"></div>
+</div>
+</li>
+
+ 
+
+<?php /*?>
+<li> 
+ 
+
+<a href="<?php echo $_product->getProductUrl() ?>"><img  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135) ?>" width="135" height="135" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a>
+
+<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a>
+ 
+<?php echo $this->getPriceHtml($_product, true, '-new') ?>
+
+<?php if($_product->isSaleable()): ?>
+<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>                 
+<?php endif; ?>
+
+
+</li><?php */?>
+        
+    
+       
+<?php endforeach; ?>
+<?php endif; ?>
+
+
+</ul>

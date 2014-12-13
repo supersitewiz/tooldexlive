@@ -1,0 +1,374 @@
+<script type="text/javascript" >
+function tab_1()
+{
+  document.getElementById('t1').className = "active";
+  document.getElementById('t2').className = "";
+  document.getElementById('t3').className = "";
+  document.getElementById('tab1').style.display='block';
+  document.getElementById('tab2').style.display='none';
+  document.getElementById('tab3').style.display='none';
+}
+function tab_2()
+{
+  document.getElementById('t1').className = "";
+  document.getElementById('t2').className = "active";
+  document.getElementById('t3').className = "";
+  document.getElementById('tab1').style.display='none';
+  document.getElementById('tab2').style.display='block';
+  document.getElementById('tab3').style.display='none';
+}
+function tab_3()
+{
+  document.getElementById('t1').className = "";
+  document.getElementById('t2').className = "";
+  document.getElementById('t3').className = "active";
+  document.getElementById('tab1').style.display='none';
+  document.getElementById('tab2').style.display='none';
+  document.getElementById('tab3').style.display='block';
+}
+
+
+</script>
+
+
+
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->setEscapeMessageFlag(true)->toHtml() ?></div>
+<div class="detail_mid_main">
+<form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <div class="no-display">
+        <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+        <input type="hidden" name="related_product" id="related-products-field" value="" />
+</div>
+		
+		
+		
+		
+		
+        <div class="detail_mid_left">
+		<?php echo $this->getChildHtml('media') ?>
+        </div>
+        <!--  detail_mid_right  -->
+        <div class="detail_mid_right">
+          <div class="detail_mid_right_top">
+            <h2><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h2>
+            <div class="follow">
+			<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+            <script type="text/javascript">stLight.options({publisher: "ur-1163c7a-5df-37bd-d382-3c62c4f616"});</script>
+              <ul>
+                <li><span class='st_facebook_large' displayText='Facebook'></span></li>
+                <li><span class='st_twitter_large' displayText='Tweet'></span></li>
+              </ul>
+            </div>
+            <div class="Clear"></div>
+          </div>
+          <div class="product_descraption_main"> 
+            <div class="product_descrption"> 
+              <div class="pro_review">
+			  <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+              </div>
+              
+              <div class="block_2">
+                <ul>
+                  <li> Item number  : </li>
+                  <li> <?php echo $this->__('%s', $this->escapeHtml($_product->getSku())); ?></li>
+				  
+				  <li> Availabilty : </li>
+                  <li>  <?php echo $pizza = $_product->getResource()->getAttribute('shipping_time')->getFrontend()->getValue($_product);  ?></li>
+				 
+                </ul>
+              </div>
+			  
+			   <div class="block_22">
+                
+                   <?php echo $this->getChildHtml('alert_urls') ?>
+                   <?php echo $this->getChildHtml('product_type_data') ?>
+				   <?php echo $this->getChildHtml('tierprices') ?>
+                   <?php echo $this->getChildHtml('extrahint') ?>
+				   
+				   
+                 
+               </div>
+			  <?php  $discontinued = $_product->getResource()->getAttribute('discontinued')->getFrontend()->getValue($_product);
+			  if($discontinued=='0'){
+			   ?>
+			  
+              <div class="block_3">
+			   <?php if (!$this->hasOptions()):?>
+                        <div class="add-to-box">
+                            <?php if($_product->isSaleable()): ?>
+                                <?php echo $this->getChildHtml('addtocart') ?>
+                            <?php endif; ?>
+                            <?php echo $this->getChildHtml('addto') ?>
+                        </div>
+                    <?php else:?>
+                        <?php if ($_product->isSaleable() && $this->hasOptions() && $this->getChildChildHtml('container1') ):?>
+                            <div class="options-container-small">
+                                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                            </div>
+                        <?php else: ?>
+                            
+                        <?php endif;?>
+                    <?php endif; ?>
+					
+					<div class="clearer"></div>
+        <?php if ($_product->isSaleable() && $this->hasOptions() && $this->getChildChildHtml('container2') ):?>
+            <div class="options-container-big">
+                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+            </div>
+        <?php endif;?>
+              </div>
+			  
+			  <?php } ?>
+			  
+			  
+              <div class="quick_over">
+			   <?php if ($_product->getShortDescription()):?>
+                <h4>Quick Overview</h4>
+                <p> <?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?> </p>
+			   <?php endif;?>
+              </div>
+		  
+			  
+            </div>
+          </div> 
+		  
+ 
+</form>		  
+		  
+		  
+		  
+		  
+		  
+ 
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('') ?>view_js/jquery.jcarousel.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('') ?>view_js/tango/skin.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('') ?>view_js/ie7/skin.css" />
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+    // Initialise the first and second carousel by class selector.
+	// Note that they use both the same configuration options (none in this case).
+	jQuery('.first-and-second-carousel').jcarousel();
+	
+	// If you want to use a caoursel with different configuration options,
+	// you have to initialise it seperately.
+	// We do it by an id selector here.
+	jQuery('#third-carousel').jcarousel({
+        vertical: true
+    });
+});
+
+</script>
+<?php  echo $this->getChildHtml('relatedProducts') ?>
+
+
+
+
+
+<div class="tabbing">  
+
+
+
+
+<?php $discontinued_product_sku = $_product->getResource()->getAttribute('discontinued_product_sku')->getFrontend()->getValue($_product);
+if($discontinued_product_sku!='')
+{  ?>
+<table id="tab-x" class="tab-x">
+<tr>
+<td>
+<table id="t_2">
+<tr>
+<th class="active" id="t1"><a href="javascript:void(0)" onclick="return tab_1();"> Replacements </a></th>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="tab_view">
+<div id="tab1">	
+<?php
+$discontinued_product_sku;
+$_Pdetails = Mage::getModel('catalog/product')->loadByAttribute('sku', '10');
+?>
+
+<ul class="products-grid" id="upsell-product-list">		
+<li class="item">
+<div class="pro_img"><a href="<?php echo $_Pdetails->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_Pdetails->getName()) ?>" class="product-image"><img src="<?php echo $_Pdetails->getImageUrl(); ?>" width="135" height="135"/></a></div>
+<div class="pro_detail"> <h3 class="product-name"><a href="<?php echo $_Pdetails->getProductUrl() ?>"><?php echo $_Pdetails->getName(); ?></a></h3>
+</div>
+</li>
+</ul>
+ 
+</div>
+</td>
+</tr>
+</table>
+
+<?php } else { ?>
+
+<table id="tab-x" class="tab-x">
+<tr>
+<td>
+<table id="t_2">
+<tr>
+<th class="active" id="t1"><a href="javascript:void(0)" onclick="return tab_1();">Description1</a></th>
+<th class="" id="t2"><a href="javascript:void(0)" onclick="return tab_2();">Shipping And Payments</a></th>
+<th class="" id="t3"><a href="javascript:void(0)" onclick="return tab_3();">All Review</a></th>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="tab_view">
+<div id="tab1">
+<?php echo $_helper->productAttribute($_product, nl2br($_product->getDescription()), 'description') ?>
+</div>
+<div id="tab2" style="display:none;">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('shipping_payments')->toHtml() ?>
+</div>
+<div id="tab3" style="display:none;">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('review')->toHtml() ?>
+</div>
+</td>
+</tr>
+</table>
+
+<?php } ?>
+
+</div>
+
+ 
+</div> 
+ 
+        <?php  //echo $this->getChildHtml('upsell_products') ?>
+        <?php  echo $this->getChildHtml('productTagList') ?>
+        <?php // echo $this->getChildHtml('product_additional_data') ?>
+		 
+		
+		
+		
+		
+		
+
+
+<?php  $pizza = $_product->getResource()->getAttribute('similar_product')->getFrontend()->getValue($_product);  
+if($pizza!='')
+{?>
+<div class="box-collateral box-up-sell">
+<div class="box-title">
+<h2><?php echo $this->__('Similar Items') ?></h2>
+</div>
+<ul class="products-grid" id="upsell-product-list">		
+<?php 
+$pieces = explode(',', $pizza);
+foreach($pieces as $abc) {
+$_Pdetails = Mage::getModel('catalog/product')->loadByAttribute('sku',$abc);
+?>
+ <li class="item">
+<div class="pro_img"><a href="<?php echo $_Pdetails->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_Pdetails->getName()) ?>" class="product-image"><img src="<?php echo $_Pdetails->getImageUrl(); ?>" width="135" height="135"/></a></div>
+<div class="pro_detail"> <h3 class="product-name"><a href="<?php echo $_Pdetails->getProductUrl() ?>"><?php echo $_Pdetails->getName(); ?></a></h3>
+ <span><?php echo $_Pdetails->getPrice(); ?></span>
+ </div>
+</li>
+<?php // echo $_Pdetails->getDescription();
+} ?>
+</ul>
+</div>
+<?php  }?>
+
+
+</div>    
+
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+    var productAddToCartForm = new VarienForm('product_addtocart_form');
+    productAddToCartForm.submit = function(button, url) {
+        if (this.validator.validate()) {
+            var form = this.form;
+            var oldUrl = form.action;
+
+            if (url) {
+               form.action = url;
+            }
+            var e = null;
+            try {
+                this.form.submit();
+            } catch (e) {
+            }
+            this.form.action = oldUrl;
+            if (e) {
+                throw e;
+            }
+
+            if (button && button != 'undefined') {
+                button.disabled = true;
+            }
+        }
+    }.bind(productAddToCartForm);
+
+    productAddToCartForm.submitLight = function(button, url){
+        if(this.validator) {
+            var nv = Validation.methods;
+            delete Validation.methods['required-entry'];
+            delete Validation.methods['validate-one-required'];
+            delete Validation.methods['validate-one-required-by-name'];
+            // Remove custom datetime validators
+            for (var methodName in Validation.methods) {
+                if (methodName.match(/^validate-datetime-.*/i)) {
+                    delete Validation.methods[methodName];
+                }
+            }
+
+            if (this.validator.validate()) {
+                if (url) {
+                    this.form.action = url;
+                }
+                this.form.submit();
+            }
+            Object.extend(Validation.methods, nv);
+        }
+    }.bind(productAddToCartForm);
+//]]>
+</script>

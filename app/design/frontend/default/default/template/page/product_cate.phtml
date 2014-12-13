@@ -1,0 +1,21 @@
+<table id="home_category_x">
+<h1>Category</h1>
+<tr>
+<?php
+
+$children = Mage::getModel('catalog/category')->getCategories(2);
+$i=1;
+foreach ($children as $category):
+$category=Mage::getModel('catalog/category')->load($category->getId());
+?>
+
+<td><a href="<?php echo $category->getUrl() ?>">
+<span class="name-x"><?php echo $category->getName() ?></span>
+<span class="images-x"><img src="<?php echo $category->getImageUrl() ?>" /></span>
+</a></td>
+<?php if($i%4=='0') {?>
+</tr><tr>
+<?php } $i++; endforeach; ?>
+
+</tr>
+</table>

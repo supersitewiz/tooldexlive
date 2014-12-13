@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<config><acl><resources><resource id="Pzdgmailcom_Commercebug::admin"><resource id="Pzdgmailcom_Commercebug::system"><resource id="Pzdgmailcom_Commercebug::config"><resource id="Pzdgmailcom_Commercebug::commercebug" title="Configuration for Advanced Debugger"/></resource></resource></resource></resources></acl></config>

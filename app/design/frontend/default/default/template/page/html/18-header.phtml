@@ -1,0 +1,142 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+
+<div id="wrappertol">
+<!-- wrapper -->
+
+
+<!-- headder -->
+<div class="headdertol">
+<div class="maintol">
+<div class="logo"><a href="<?php echo $this->getUrl('') ?>"><img src="<?php echo $this->getSkinUrl('') ?>images/logo.png" width="301" height="86" alt=""></a></div>
+
+<!-- headder right  -->
+<div class="headder_right">
+
+<div class="call">
+<ul>
+<li class="nomber">1-888-717-1020</li>
+<li><?php
+$loggedIn = $this->helper("customer")->isLoggedIn();
+if($loggedIn == 1){ echo "<a href=\"".Mage::getBaseUrl()."customer/account/logout/\" />Log out</a>"; }
+else{ echo "<a href=\"".Mage::getBaseUrl()."customer/account/\" />Log in</a>"; }
+?> </li>
+<li><a href="<?php echo $this->getUrl('customer/account/create/') ?>">Register</a> </li>
+</ul>
+</div>
+<div class="social_tol_main">
+<div class="social_tol">
+<ul>
+<li><a href="http://www.facebook.com/" target="_blank"><img src="<?php echo $this->getSkinUrl('') ?>images/facebook.png" width="32" height="39" alt=""></a></li>
+<li><a href="https://twitter.com/" target="_blank"><img src="<?php echo $this->getSkinUrl('') ?>images/twitter.png" width="32" height="39" alt=""></a></li>
+</ul>
+</div>
+
+<div class="cart_tol">Cart: <span> 
+<?php if(Mage::getSingleton('checkout/session')->getQuote()->getItemsSummaryQty() > 0) 
+{ ?>
+<?php  echo  __(Mage::getSingleton('checkout/session')->getQuote()->getItemsSummaryQty()) ?>
+<?php  } else { ?>
+  0 
+<?php } ?>
+</span> item(s)</div>
+</div>
+<div class="nav_tol">
+<ul>
+<li><a href="<?php echo $this->getUrl('customer/account/') ?>">My Account </a></li>
+<li><a href="<?php echo $this->getUrl('wishlist') ?>">My Wishlist   </a></li>
+<li><a href="<?php echo $this->getUrl('checkout/cart/') ?>">My Cart   </a></li>
+<li><a href="<?php echo $this->getUrl('checkout/onepage/') ?>">Checkout </a></li>
+</ul>
+</div>
+</div>
+<!-- headder right  -->
+
+<div class="menubar">
+<ul>
+<li><a href="<?php echo $this->getUrl('') ?>">Home    </a></li>
+<li><a href="<?php echo $this->getUrl('') ?>">     Products       </a></li>
+<li><a href="<?php echo $this->getUrl('brand') ?>">Brand        </a></li>
+<li><a href="<?php echo $this->getUrl('about') ?>"> About Us       </a></li>
+<li><a href="<?php echo $this->getUrl('contacts') ?>"> Contact Us       </a></li>
+<li><a href="<?php echo $this->getUrl('policies') ?>"> Policies </a></li>
+</ul>
+<div class="search_tol"><?php echo $this->getChildHtml('topSearch') ?>  </div>
+
+<div class="Clear"></div>
+</div>
+
+
+<div class="Clear"></div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php /*?>
+
+
+<div class="header-container">
+    <div class="header-panel">
+        <div class="switches"><?php echo $this->getChildHtml('switches') ?></div>
+        <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?></p>
+        <?php echo $this->getChildHtml('accountLinks') ?>
+    </div>
+    <div class="header">
+        <div class="branding">
+        <?php if ($this->getIsHomePage()):?>
+            <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+            <?php else:?>
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <?php endif?>
+            <?php echo $this->getChildHtml('headerCallout') ?>
+        </div>
+        <div class="quick-access">
+            <div class="checkout-link"><?php echo $this->getChildHtml('checkoutLinks') ?></div>
+            <?php echo $this->getChildHtml('topCart') ?>
+            <?php echo $this->getChildHtml('topLinks') ?>
+            <?php echo $this->getChildHtml('topSearch') ?>
+        </div>
+    </div>
+   
+    <?php echo $this->getChildHtml('topContainer') ?>
+</div>
+<?php */?>

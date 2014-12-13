@@ -1,0 +1,8 @@
+User-agent: *
+Crawl-delay: 30
+
+User-agent: Googlebot 
+Crawl-delay: 30
+
+User-agent: Googlebot-Image
+Crawl-delay: 30

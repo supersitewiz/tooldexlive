@@ -1,0 +1,275 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+
+<div id="wrappertol">
+<!-- wrapper -->
+
+
+<!-- headder -->
+<div class="headdertol">
+<div class="maintol">
+<div class="logo"><a href="<?php echo $this->getUrl('') ?>"><img src="<?php echo $this->getLogoSrc() ?>" width="301" height="86" alt=""></a></div>
+
+<!-- headder right  -->
+<div class="headder_right">
+
+<div class="call">
+<ul>
+<li class="nomber">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_top_toll_no')->toHtml() ?>
+</li>
+<li><?php
+$loggedIn = $this->helper("customer")->isLoggedIn();
+if($loggedIn == 1){ echo "<a href=\"".Mage::getBaseUrl()."customer/account/logout/\" />Log out</a>"; }
+else{ echo "<a href=\"".Mage::getBaseUrl()."customer/account/\" />Log in</a>"; }
+?> </li>
+<li><a href="<?php echo $this->getUrl('customer/account/create/') ?>">Register</a> </li>
+</ul>
+</div>
+<div class="social_tol_main">
+<div class="social_tol">
+<ul>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_right_social_link')->toHtml() ?>
+</ul>
+</div>
+
+<div class="cart_tol">
+<a href="<?php echo $this->getUrl('checkout/cart/') ?>">
+<?php echo $this->getChildHtml('topCart') ?>
+<?php /*?><?php // echo $this->getChildHtml('topCart') ?>
+ Cart: <span> 
+<?php if(Mage::getSingleton('checkout/session')->getQuote()->getItemsSummaryQty() > 0) 
+{ ?>
+<?php  echo  __(Mage::getSingleton('checkout/session')->getQuote()->getItemsSummaryQty()) ?>
+<?php  } else { ?>
+  0 
+<?php } ?><?php */?>
+</a></div>
+</div>
+<div class="nav_tol">
+<ul>
+<li><a href="<?php echo $this->getUrl('customer/account/') ?>" >My Account </a></li>
+<li><a href="<?php echo $this->getUrl('wishlist') ?>">My Wishlist   </a></li>
+<li><a href="<?php echo $this->getUrl('checkout/cart/') ?>">My Cart   </a></li>
+<li><a href="<?php echo $this->getUrl('checkout/onepage/') ?>">Checkout </a></li>
+</ul>
+</div>
+</div>
+<!-- headder right  -->
+
+<div class="menubar">
+<ul>
+<li><a href="http://www.tooldex.com/" class=" active">Home</a></li>
+<li class="product_li"><a href="http://www.tooldex.com/products/" class="">Products</a>
+
+<div class="category_box">
+<ul>
+
+<li><a href="http://www.tooldex.com/abrasive.html">
+Abrasives</a></li>
+
+<li><a href="http://www.tooldex.com/adhesives-sealants-tapes.html">
+Adhesives, Sealants &amp; Tapes</a></li>
+
+<li><a href="http://www.tooldex.com/chemicals-lubricants-paints.html">
+Chemicals, Lubricants &amp; Paints</a></li>
+
+<li><a href="http://www.tooldex.com/display-units.html">
+Display Units</a></li>
+
+<li><a href="http://www.tooldex.com/electrical-lighting.html">
+Electrical &amp; Lighting</a></li>
+
+<li><a href="http://www.tooldex.com/electrical-tools.html">
+Electrical Tools</a></li>
+</ul><ul>
+
+<li><a href="http://www.tooldex.com/fasteners-clamps-straps.html">
+Fasteners, Clamps &amp; Straps</a></li>
+
+<li><a href="http://www.tooldex.com/foodservice-supplies.html">
+Foodservice Supplies</a></li>
+
+<li><a href="http://www.tooldex.com/hand-tools.html">
+Hand Tools</a></li>
+
+<li><a href="http://www.tooldex.com/hvac.html">
+HVAC</a></li>
+
+<li><a href="http://www.tooldex.com/janitorial-equipment.html">
+Janitorial Equipment</a></li>
+
+<li><a href="http://www.tooldex.com/marking-tools.html">
+Marking Tools</a></li>
+</ul><ul>
+
+<li><a href="http://www.tooldex.com/material-handling.html">
+Material Handling</a></li>
+
+<li><a href="http://www.tooldex.com/measuring-leveling-tools.html">
+Measuring &amp; Leveling Tools</a></li>
+
+<li><a href="http://www.tooldex.com/mro-supplies.html">
+MRO Supplies</a></li>
+
+<li><a href="http://www.tooldex.com/oilfield.html">
+Oilfield</a></li>
+
+<li><a href="http://www.tooldex.com/plumbing-equipment.html">
+Plumbing Equipment</a></li>
+
+<li><a href="http://www.tooldex.com/pneumatics.html">
+Pneumatics</a></li>
+</ul><ul>
+
+<li><a href="http://www.tooldex.com/power-tools.html">
+Power Tools</a></li>
+
+<li><a href="http://www.tooldex.com/sales.html">
+Sales</a></li>
+
+<li><a href="http://www.tooldex.com/pumps.html">
+Pumps</a></li>
+
+<li><a href="http://www.tooldex.com/safety-security.html">
+Safety &amp; Security</a></li>
+
+<li><a href="http://www.tooldex.com/welding-supplies.html">
+Welding Supplies</a></li>
+</ul>
+
+</div>
+
+</li>
+<li><a href="http://www.tooldex.com/brands/" class="">BrandS</a></li>
+<li><a href="http://www.tooldex.com/about/" class="">About Us</a></li>
+<li><a href="http://www.tooldex.com/contacts/" class="">Contact Us</a></li>
+<li><a href="http://www.tooldex.com/policies/" class="">Policies</a></li>
+</ul>
+<div class="search_tol"><?php echo $this->getChildHtml('topSearch') ?>  </div>
+
+<div class="Clear"></div>
+</div>
+
+
+<div class="Clear"></div>
+</div>
+</div>
+<?php /*?><style type="text/css">
+.outermost {    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, rgba(209,238,255,0.25) 0%, rgba(111,202,255,0.25) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(209,238,255,0.25)), color-stop(100%,rgba(111,202,255,0.25)));
+background: -webkit-linear-gradient(top, rgba(209,238,255,0.25) 0%,rgba(111,202,255,0.25) 100%);
+background: -o-linear-gradient(top, rgba(209,238,255,0.25) 0%,rgba(111,202,255,0.25) 100%);
+background: -ms-linear-gradient(top, rgba(209,238,255,0.25) 0%,rgba(111,202,255,0.25) 100%);
+background: linear-gradient(top, rgba(209,238,255,0.25) 0%,rgba(111,202,255,0.25) 100%);    border-color: -moz-use-text-color #A8C9E5 #A8C9E5 !important;
+    border-image: none !important;
+    border-radius: 0 0 4px 4px;
+    border-right: 1px solid #A8C9E5 !important;
+    border-style: none solid solid !important;
+    border-width: medium 1px 1px !important;
+    box-shadow: 0 1px 5px 3px #EEF0F2;
+    clear: both;
+    font-size: 12px;
+    margin: 0 auto !important;
+    padding: 10px 20px;
+    position: relative;
+    text-shadow: 0 1px 0 #FFFFFF;
+    z-index: 2;
+   width: 850px;
+}
+
+r {
+    color: #990000;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 2px #FFFFFF;
+   float: left;
+}
+s {    color: #292929;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: -10px;
+
+        text-decoration: none;}
+</style>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2/jquery.min.js"></script>-->
+<script type="text/javascript">
+jQuery(document).ready(function () {
+    jQuery(".header2").click(function () {
+        jQuery(this).next(".data").slideToggle(200);
+    });
+});
+</script>
+<div class="outermost">
+    <p class="header2"><r class="h2">Tooldex Holiday Closing Notice</r><s></s><img src="http://www.bhphotovideo.com/images/expendBtn.png" style="float:right;"> </p>
+    <div class="data">
+<br><font style="font-weight:bold;">Please take note that Tooldex will be closed from Tuesday, June 3rd at 1 p.m. through Thursday, June 5th. We will reopen for regular business on Friday, June 6th at 9 a.m. EDT. </font><br>
+ <br>All customer orders for in-stock items placed by Tuesday, June 3rd, at 10:00 a.m. EDT will be processed and shipped prior to our Holiday closing. Orders placed after the above time will be promptly processed when we reopen.  <br>
+<br><font style="font-weight:bold;"> We sincerely appreciate your patronage and apologize for the inconvenience.</font>
+    </div>
+</div>
+<?php */?>
+
+
+<?php /*?>
+
+
+<div class="header-container">
+    <div class="header-panel">
+        <div class="switches"><?php echo $this->getChildHtml('switches') ?></div>
+        <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?></p>
+        <?php echo $this->getChildHtml('accountLinks') ?>
+    </div>
+    <div class="header">
+        <div class="branding">
+     
+            <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+            <?php else:?>
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <?php endif?>
+            <?php echo $this->getChildHtml('headerCallout') ?>
+        </div>
+        <div class="quick-access">
+            <div class="checkout-link"><?php echo $this->getChildHtml('checkoutLinks') ?></div>
+            <?php echo $this->getChildHtml('topCart') ?>
+            <?php echo $this->getChildHtml('topLinks') ?>
+            <?php echo $this->getChildHtml('topSearch') ?>
+        </div>
+    </div>
+   
+    <?php echo $this->getChildHtml('topContainer') ?>
+</div>
+<?php */?>

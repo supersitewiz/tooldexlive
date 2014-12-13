@@ -1,0 +1,135 @@
+<?php
+// get the current Magento cart
+$cart = Mage::getSingleton('checkout/cart');
+
+ 
+
+	if($_POST['sku0']!=''){
+		$sku = $_POST['sku0'];
+	    $p = Mage::getModel('catalog/product')->getIdBySku($sku);
+        if($p=='')
+		{
+		$traget_url=$this->getUrl('quick-addtocart');
+	    print("<script>window.location='$traget_url'</script>");
+		exit;
+		}
+		
+     
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p);
+	
+		$cart->addProduct($product, array( 
+			'qty' => $_POST['qty0'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+	}
+	
+	if($_POST['sku1']!=''){
+	    $sku1 = $_POST['sku1'];
+		$p1 = Mage::getModel('catalog/product')->getIdBySku($sku1);
+        if($p1=='')
+		{
+		$traget_url=$this->getUrl('quick-addtocart');
+	    print("<script>window.location='$traget_url'</script>");
+		exit;
+		}
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p1);
+	
+		$cart->addProduct($product, array( 
+			'qty' => $_POST['qty1'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+		}
+		
+		if($sku2 = $_POST['sku2']){
+		$sku2 = $_POST['sku2'];
+		$p2 = Mage::getModel('catalog/product')->getIdBySku($sku2);
+        if($p2=='')
+		{
+		$traget_url=$this->getUrl('quick-addtocart');
+	    print("<script>window.location='$traget_url'</script>");
+		exit;
+		}
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p2);
+	
+		$cart->addProduct($product, array( 
+			'qty' => $_POST['qty2'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+		} 
+		if($sku3 = $_POST['sku3']){
+		$sku3 = $_POST['sku3'];
+		$p3 = Mage::getModel('catalog/product')->getIdBySku($sku3);
+        if($p3=='')
+		{
+		$traget_url=$this->getUrl('quick-addtocart');
+	    print("<script>window.location='$traget_url'</script>");
+		exit;
+		}
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p3);
+	
+		$cart->addProduct($product, array( 
+			'qty' => $_POST['qty3'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+		}
+		if($sku4 = $_POST['sku4']){
+		$sku4 = $_POST['sku4'];
+		$p4 = Mage::getModel('catalog/product')->getIdBySku($sku4);
+        if($p4=='')
+		{
+		$traget_url=$this->getUrl('quick-addtocart');
+	    print("<script>window.location='$traget_url'</script>");
+		exit;
+		}
+		// call the Magento catalog/product model
+		$product = Mage::getModel('catalog/product')
+					 // set the current store ID
+					 ->setStoreId(Mage::app()->getStore()->getId())
+					 // load the product object
+					 ->load($p4);
+	
+		$cart->addProduct($product, array( 
+			'qty' => $_POST['qty4'], 
+			'super_attribute' => array( key($_POST['super_attribute']) => $_POST['super_attribute'][525] )
+			)
+		);
+		}
+ 
+// save the cart
+	$cart->save();
+	
+// very straightforward, set the cart as updated
+	Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
+	
+	$traget_url=$this->getUrl('checkout/cart/');
+	
+	print("<script>window.location='$traget_url'</script>");
+  
+
+?>
+
+mukesh

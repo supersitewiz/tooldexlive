@@ -1,0 +1,263 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<?php echo $this->getChildHtml('global_notices') ?>
+<?php echo $this->getChildHtml('header') ?>
+        
+<div class="middle_tol">
+<div class="maintol"> 
+      <!--        middle left    -->
+<div class="middle_left">
+ <?php echo $this->getChildHtml('left') ?> 
+</div>
+      
+      <!--              middle right               -->
+      
+<div class="middle_right">
+<div class="middle_top">
+<div class="breadcrumbs">
+<?php echo $this->getChildHtml('breadcrumbs') ?>
+<!--<ul>
+<li class="home"> <a title="Go to Home Page" href="#">Home</a> <span>/ </span> </li>
+<li class="category4"> <a title="" href="#">Abrasives </a></li>
+</ul>-->
+</div>
+          
+<?php echo $this->getChildHtml('global_messages') ?>
+<?php echo $this->getChildHtml('content') ?>	  
+		  
+		  
+<div class="pro_dummy_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/dummy_img.png" width="793" height="151" alt="">mks</div>
+          
+</div>
+     
+<!-- <div class="pager_tol_main"> 
+          <div class="sort_by_tol">
+          <label>Sort By</label>
+          <select>
+          <option>Position</option>
+          <option>Position</option>
+          </select>
+          </div>
+          
+          <div class="pageing_tol">
+          <label>Page :</label>
+          <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          </ul>
+          </div>
+          
+          <div class="page_show_tol">  
+          <label>show</label>
+          <select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          </select>
+          <label>Per Page</label>
+          </div>
+          
+          </div>-->
+          
+<!--   <div class="new_pro">
+             
+          <ul>
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_1.png" width="124" height="109" alt=""></div>
+                <div class="pro_detail">
+                  <p>Bosch Power Tools 1122-5VSRH SDS-plus Cordless Rotary  </p>
+                  <div class="pro_mrp_2"><span>$730.66</span>$700.66 </div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+                <div class="Clear"></div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_12.png" alt=""></div>
+                <div class="pro_detail">
+                  <p>Cooper Hand Tools Weller 1095 Dual </p>
+                  <div class="pro_mrp_2"><span>$61.61</span>$61.61 </div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_3.png" alt=""></div>
+                <div class="pro_detail">
+                  <p>Alemite 306741 Loader Couplers </p>
+                  <div class="pro_mrp">$26.25</div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_4.png" alt=""></div>
+                <div class="pro_detail">
+                  <p>DeWalt DC223KA Cordless SDS Rotary </p>
+             <div class="pro_mrp_2"><span>$61.61</span>$61.61 </div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_5.png" alt=""></div>
+                <div class="pro_detail">
+                  <p>Fill-Rite FR1210C Rotary Vane Pumps </p>
+                   <div class="pro_mrp_2"><span>$61.61</span>$61.61 </div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_13.png" alt=""></div>
+                <div class="pro_detail">
+                  <p>Bosch Power Tools 1618571014 SDS  </p>
+                   <div class="pro_mrp_2"><span>$50.25</span>$50.25 </div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_14.png" alt=""></div>
+                <div class="pro_detail">
+                  <p>Milwaukee Electric Tools 0756-20 1" SDS </p>
+                   <div class="pro_mrp_2"><span>$562.54</span>$562.54 </div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_15.png" alt=""></div>
+                <div class="pro_detail">
+                  <p>DeWalt DC720KA Cordless Drill/Drivers </p>
+                   <div class="pro_mrp_2"><span>$223.74</span>$223.74 </div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_16.png" alt=""></div>
+                <div class="pro_detail">
+                  <p>DeWalt DW5906 Carbide-Tipped Core </p>
+                   <div class="pro_mrp_2"><span>$227.53</span>$227.53 </div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+              </div>
+            </li>
+            
+            <li>
+              <div class="new_promain">
+                <div class="pro_img"> <img src="images/img_10.png" alt=""></div>
+                <div class="pro_detail">
+                  <p>General Tools IRT206 Infrared Thermometer</p>
+                   <div class="pro_mrp_2"><span>$43.17</span>$43.17 </div>
+                  <input type="button" class="add_to_cart" value="Add to cart" />
+                </div>
+              </div>
+            </li>
+            <div class="Clear"></div>
+          </ul>
+        </div>-->
+        
+<!--<div class="pager_tol_main"> 
+          <div class="sort_by_tol">
+          <label>Sort By</label>
+          <select>
+          <option>Position</option>
+          <option>Position</option>
+          </select>
+          </div>
+          
+          <div class="pageing_tol">
+          <label>Page :</label>
+          <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          </ul>
+          </div>
+          
+          <div class="page_show_tol">  
+          <label>show</label>
+          <select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          </select>
+          <label>Per Page</label>
+          </div>
+          
+          </div>-->
+        
+        <!--      ///        middle right               --> 
+</div>
+</div>
+</div>		
+ 	 
+<?php echo $this->getChildHtml('footer') ?>
+<?php echo $this->getChildHtml('before_body_end') ?>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

@@ -1,0 +1,241 @@
+@charset "utf-8";
+/* CSS Document */
+div.holNote{
+/*---------gradient*/
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QxZWVmZiIgc3RvcC1vcGFjaXR5PSIwLjI1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZmNhZmYiIHN0b3Atb3BhY2l0eT0iMC4yNSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(209,238,255,0.25) 0%, rgba(111,202,255,0.25) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(209,238,255,0.25)), color-stop(100%,rgba(111,202,255,0.25))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(209,238,255,0.25) 0%,rgba(111,202,255,0.25) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(209,238,255,0.25) 0%,rgba(111,202,255,0.25) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(209,238,255,0.25) 0%,rgba(111,202,255,0.25) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(209,238,255,0.25) 0%,rgba(111,202,255,0.25) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40d1eeff', endColorstr='#406fcaff',GradientType=0 ); /* IE6-8 */
+/*---------end gradient*/
+	
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	-webkit-border-radius: 0px 0px 4px 4px;
+	border-radius: 0px 0px 4px 4px;
+	
+	-webkit-box-shadow: 0px 1px 5px 3px #eef0f2;
+	-moz-box-shadow: 0px 1px 5px 3px #eef0f2;
+	box-shadow: 0px 1px 5px 3px #eef0f2; 
+	clear:both;
+	
+	/*need the "!important" to overwrite workaround*/
+	border:solid 1px #a8c9e5 !important;
+	border-top:none !important;
+	font-size: 12px;
+	margin: 0 auto !important;
+	padding: 10px 20px;
+	position:relative;
+	text-shadow: 0 1px 0 #FFFFFF;
+	z-index:2;
+	text-align: center;
+	
+}
+.holNote p{
+	font-family:Arial, Helvetica, sans-serif !important;
+	font-size:12px;
+	color:#292929;
+	text-align:center;
+	margin:0;
+	text-shadow: 1px 2px #FFFFFF;
+}
+.holNote h2{
+	color:#990000;
+	font-weight:bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:14px;
+	line-height: 1.5;
+	margin:0 0 2px 0px;
+	text-shadow: 1px 2px #FFFFFF;
+}
+div.bigNote.collapsed h2 {
+	margin-right: 20px;
+}
+.holNote h2 span{
+	font-weight:normal;
+	display:none;
+	color:#292929;
+	font-size:12px;
+	margin-left:10px;
+}
+.holNote .okBtn{
+	cursor:pointer;
+	background:transparent url(/images/okBtn.png) no-repeat;
+	height:24px;
+	width:49px;
+	text-indent:-9999em;
+	margin:0 auto;
+	padding-bottom:4px;
+	display:block;
+	outline: medium none;
+	margin-top:8px;
+}
+.holNote .okBtn:hover{
+	background-position:0 -33px;
+}
+.holNote .expendBtn{
+	background: url(/images/expendBtn.png) no-repeat scroll center top transparent;
+	cursor: pointer;
+	position: absolute;
+	right: 15px;
+	text-indent: -9999em;
+	top: 10px;
+	width: 24px;
+	height: 20px;
+	display:none;
+	outline: medium none;
+}
+div.bigNote{
+	width:850px;
+	text-align: left;
+}
+.bigNote p{
+	text-align: left;
+	padding-top:3px;
+}
+.bigNote .special{
+	padding-top:2px;
+}
+div.collapsed p,div.collapsed a.okBtn{
+	display:none;
+}	
+div.collapsed h2 span,div.collapsed a.expendBtn{
+	display:inline;
+}
+div.collapsed h2.multiLine{
+	height:52px;
+}
+div.collapsed h2.twoLineInline {
+    height: 37px;
+}
+div.collapsed h2.twoLineInline div {
+    float: left;
+    font-size: 14px;
+}
+div.collapsed h2.twoLineInline span {
+    display: inline-block;
+    width: 597px;
+}
+.shortNote { 
+	width: 500px;
+} 
+div.shortNote h2 span{
+	display:inline;
+} 
+	
+div#tHeader{
+
+	/*height:auto;*/
+}
+.clearBoth{
+	clear:both;
+}
+div.darkBg {
+	width: 100%;
+	_width: 1000%;
+	height: 2000px;
+	position:absolute;
+	background-color: #FFF;  /* the background          */
+    filter:alpha(opacity=75);   /* Internet Explorer       */
+    -moz-opacity:0.75;           /* Mozilla 1.6 and below   */
+    opacity: 0.75;               /* newer Mozilla and CSS-3 */
+	top:0;
+	left: 0;
+	z-index:998;
+}
+a.viewSchedule{
+	text-decoration: underline;
+	cursor: pointer;
+	color: #000000;
+	font: 12px arial;
+	text-shadow: none;
+}
+.temp5 #tContent{
+	border-top:solid lightgray 1px;
+}
+div.collapsed h2.multiLine span{
+	display:block;
+	clear:both;
+	margin-left:0px;
+}
+
+/*countdown Timer*/
+div.countdownTimer{
+	width:262px;
+	height:44px;
+	margin-left:auto;
+	margin-right:auto;
+	border:1px solid #ccc;
+	border-top:none;
+	font-family:arial;
+	text-align:center;
+	border-radius:0 0 4px 4px;
+}
+.ie #page960 .reset div.countdownTimer{/*ie workaround pages */
+	margin-left:308px;
+}
+div.countdownTimer p{
+	margin:0 auto;
+	padding:0;
+	float:none;
+	width:234px;
+	display:block;
+	font-size:13px;
+} 
+div.countdownTimer p.timerTime{
+	color:#990000;
+	background:url('/images/timer.png') no-repeat;
+	padding-left:10px;
+}
+div.countdownTimer p.overTime{
+	color:#990000;
+	width:260px;
+}
+div.countdownTimer p span{
+	float:none;
+	width:auto;
+}
+div.countdownTimer p span.countdownText{
+	font-size:14px;
+	font-weight:bold;
+	width:auto;
+	float:none;
+}
+div.countdownTimer p a{
+	margin:0;
+	padding:0 7px 0 0;
+	background:url('/images/arrowRight.png') no-repeat scroll right 7px transparent;
+	float:left;
+	font-size:11px;
+	color:#595959;
+	text-decoration:none;
+}
+div.countdownTimer p a:hover{
+	color:#000;
+}
+div.countdownTimer p a.last{
+	padding:0 7px;
+}
+div.countdownTimer p a span{
+	line-height:2;
+	font-size:11px;
+}
+span.countdownText{
+	color:#990000;
+	font-size:14px;
+	font-weight:bold;
+	width:auto;
+	float:none;
+}
+
+div.holNotes strong{font-size: inherit;}/*overwrite workaround*/
+/*workaround*/
+/*#page960 #tHeader{text-align:center;}*/
+#page960 #tHeader div.cartAndLoginLinks{text-align:left;}
+#page960 #tHeader div.holNote{text-align:left;}

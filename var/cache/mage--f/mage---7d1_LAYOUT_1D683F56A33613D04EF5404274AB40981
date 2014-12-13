@@ -1,0 +1,72 @@
+<label>PayPal Express Order Review Form</label>
+<remove name="right"/>
+<remove name="left"/>
+<reference name="root">
+   <action method="setTemplate">
+      <template>page/1column.phtml</template>
+   </action>
+</reference>
+<reference name="content">
+   <block type="paypal/express_review" name="paypal.express.review" template="paypal/express/review.phtml">
+      <block type="paypal/express_review_billing" name="express.review.billing" as="billing" template="paypal/express/review/address.phtml"/>
+      <block type="paypal/express_review_shipping" name="express.review.shipping" as="shipping" template="paypal/express/review/address.phtml"/>
+      <block type="paypal/express_review" name="express.review.shipping.method" as="shipping_method" template="paypal/express/review/shipping/method.phtml"/>
+      <block type="paypal/express_review_details" name="paypal.express.review.details" as="details" template="paypal/express/review/details.phtml">
+         <action method="addItemRender">
+            <type>default</type>
+            <block>checkout/cart_item_renderer</block>
+            <template>checkout/onepage/review/item.phtml</template>
+         </action>
+         <action method="addItemRender">
+            <type>grouped</type>
+            <block>checkout/cart_item_renderer_grouped</block>
+            <template>checkout/onepage/review/item.phtml</template>
+         </action>
+         <action method="addItemRender">
+            <type>configurable</type>
+            <block>checkout/cart_item_renderer_configurable</block>
+            <template>checkout/onepage/review/item.phtml</template>
+         </action>
+         <block type="checkout/cart_totals" name="paypal.express.review.details.totals" as="totals" template="checkout/onepage/review/totals.phtml"/>
+      </block>
+      <block type="checkout/agreements" name="paypal.express.review.details.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>
+   </block>
+</reference>
+<reference name="head">
+   <action method="addItem">
+      <type>skin_js</type>
+      <name>js/checkout/review.js</name>
+   </action>
+</reference>
+<block type="core/text_list" name="additional.product.info"/>
+<reference name="paypal.express.review.details">
+   <action method="addItemRender">
+      <type>bundle</type>
+      <block>bundle/checkout_cart_item_renderer</block>
+      <template>checkout/onepage/review/item.phtml</template>
+   </action>
+</reference>
+<reference name="paypal.express.review.details">
+   <action method="addItemRender">
+      <type>downloadable</type>
+      <block>downloadable/checkout_cart_item_renderer</block>
+      <template>downloadable/checkout/onepage/review/item.phtml</template>
+   </action>
+</reference>
+<reference name="account.links">
+   <action method="addLink" translate="label title" module="customer">
+      <label>Log In</label>
+      <url helper="customer/getLoginUrl"/>
+      <title>Log In</title>
+      <prepare/>
+      <urlParams/>
+      <position>1</position>
+   </action>
+   <action method="removeLinkByUrl" ifconfig="enterprise_invitation/general/registration_required_invitation">
+      <url helper="customer/getRegisterUrl"/>
+   </action>
+</reference>
+<remove name="reorder"/>
+<reference name="right">
+   <block type="sales/reorder_sidebar" name="sale.reorder.sidebar" as="reorder" template="sales/reorder/sidebar.phtml"/>
+</reference>

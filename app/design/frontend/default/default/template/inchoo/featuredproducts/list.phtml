@@ -1,0 +1,49 @@
+<?php
+/**
+ * @category     Inchoo
+ * @package     Inchoo Featured Products
+ * @authors    Mladen Lotar <mladen.lotar@surgeworks.com>, Vedran Subotic <vedran.subotic@surgeworks.com>
+ */
+?>
+<ul id="first-carousel" class="first-and-second-carousel jcarousel-skin-tango">
+<?php
+    $_productCollection=$this->getFeaturedProductCollection();
+    $_helper = $this->helper('catalog/output');
+?>
+<?php foreach ($_productCollection as $_product): ?>
+        
+			
+<li><div class="new_promain">
+
+<div class="pro_img">  
+<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>"  width="124" height="109" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+</div> 
+<div class="pro_detail">
+<p><?php $name_p = $_helper->productAttribute($_product, $_product->getName() , 'name');
+    if(strlen($name_p) > 38)
+	{
+	echo substr($name_p ,0 ,30).'...';
+	}
+	else
+	{
+	echo $name_p;
+	}
+
+ ?></p>
+<div class="pro_mrp"><?php echo $this->getPriceHtml($_product, true) ?></div>
+
+<input type="button" class="add_to_cart" value="Add to cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"/>
+
+</div>
+<div class="Clear"></div>
+</div>
+</li>
+ 
+            
+<?php endforeach; ?>
+</ul>
+<script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+    
+
+   

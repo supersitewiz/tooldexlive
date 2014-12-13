@@ -1,0 +1,341 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+
+<?php echo $this->getChildHtml('header') ?>
+<?php echo $this->getChildHtml('global_notices') ?>
+
+
+<div class="middle_tol">
+<div class="maintol">
+<!--        middle left    -->
+<div class="middle_left">
+<!--<div class="Categories">
+<h2>Categories</h2>
+<ul>
+<li><a href="#">    Abrasives </a></li>
+<li><a href="#">    Adhesives, Sealants & Tapes </a></li>
+<li><a href="#">    Chemicals, Lubricants & Paints </a></li>
+<li><a href="#">     Display Units</a></li>
+<li><a href="#">    Electrical & Lighting </a></li>
+<li><a href="#">    Electrical Tools </a></li>
+<li><a href="#">    Fasteners, Clamps & Straps </a></li>
+<li><a href="#">    Foodservice Supplies </a></li>
+<li><a href="#">    Hand Tools </a></li>
+<li><a href="#">    HVAC </a></li>
+<li><a href="#">    Janitorial Equipment </a></li>
+<li><a href="#">    Marking Tools </a></li>
+<li><a href="#">    Material Handling </a></li>
+<li><a href="#">    Measuring & Leveling Tools </a></li>
+<li><a href="#">    MRO Supplies </a></li>
+<li><a href="#">    Oilfield </a></li>
+<li><a href="#">    Plumbing Equipment </a></li>
+<li><a href="#">    Pneumatics </a></li>
+<li><a href="#">Power Tools </a></li>
+<li><a href="#">Sales</a></li>
+<li><a href="#">Pumps </a></li>
+<li><a href="#">   Safety & Security </a></li>
+<li><a href="#"> Welding Supplies </a></li>
+<li><a href="#">  Gift Certificates</a></li>
+</ul>
+</div>
+
+<div class="newsletter">
+<h2>Newsletter </h2>
+<table>
+<tr>
+<th>Sign Up for Our Newsletter:</th>
+</tr>
+<tr>
+<td><input type="text" class="input" value="Enter your name" /> </td>
+</tr>
+<tr>
+<td><input type="text" class="input" value="Enter your email" /> </td>
+</tr>
+<tr>
+<td><input type="submit" class="subscribe" value="Subscribe" /> </td>
+</tr>
+</table>
+</div>-->
+
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_menu')->toHtml() ?>
+<?php echo $this->getChildHtml('left') ?>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_newsletter')->toHtml() ?>
+
+<div class="order_now_pro">
+<p>Bosch PSB 650 RA Impact Reviews </p>
+<div class="order_image"><img src="<?php echo $this->getSkinUrl('') ?>images/img_11.png" alt=""></div>
+<input type="button" class="order_button" value="Order Now" />
+ <div class="Clear"></div>
+ </div>
+
+</div>
+
+
+<!--              middle right               -->
+
+<div class="middle_right">
+
+<div class="middle_top">
+<div class="banner_tol"><img src="<?php echo $this->getSkinUrl('') ?>images/banner_img.png" width="582" height="288" alt=""> </div>
+
+<div class="order_now">
+<h2>Order Now</h2>
+
+<h3>Type It In </h3>
+<div class="sku_heding">QtyM</div>
+<div class="sku_heding">Name / SKU</div>
+
+<input type="text" class="qty_input" />
+<input type="text" value="Item #" class="sku_input" />
+
+
+<input type="text" class="qty_input" />
+<input type="text" value="Item #" class="sku_input" />
+
+
+<input type="text" class="qty_input" />
+<input type="text" value="Item #" class="sku_input" />
+
+
+<input type="text" class="qty_input" />
+<input type="text" value="Item #" class="sku_input" />
+
+
+<input type="text" class="qty_input" />
+<input type="text" value="Item #" class="sku_input" />
+
+<a class="add_to_cart" href="#">Add to cart</a>
+</div>
+
+</div>
+
+
+<div class="new_pro">
+<h2>New Products</h2>
+<ul>
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_1.png" width="124" height="109" alt=""></div> 
+<div class="pro_detail">
+<p>Bosch Power Tools 11536C-2 SDS-plus Cordless Rotary </p>
+<div class="pro_mrp">$661.56</div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+
+
+</div>
+<div class="Clear"></div>
+</div>
+</li>
+
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_2.png" alt=""></div> 
+<div class="pro_detail">
+<p>3M OH&ESD 6800 6000 Series Full Facepiece  </p>
+<div class="pro_mrp">$113.91 </div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+ 
+</div>
+</div>
+</li>
+
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_3.png" alt=""></div> 
+<div class="pro_detail">
+<p>Alemite 306741 Loader Couplers </p>
+<div class="pro_mrp">$26.25</div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+ 
+</div>
+</div>
+</li>
+
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_4.png" alt=""></div> 
+<div class="pro_detail">
+<p>DeWalt DC223KA Cordless SDS Rotary </p>
+<div class="pro_mrp">$1228.80</div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+ 
+</div>
+</div>
+</li>
+
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_5.png" alt=""></div> 
+<div class="pro_detail">
+<p>Fill-Rite FR1210C Rotary Vane Pumps </p>
+<div class="pro_mrp">$326.88</div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+ 
+</div>
+</div>
+</li>
+
+<div class="Clear"></div>
+</ul>
+<div class="Clear"></div>
+</div>
+
+<!--   Featured products         -->
+
+<div class="new_pro">
+<h2>Featured products</h2>
+<ul>
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_6.png" alt=""></div> 
+<div class="pro_detail">
+<p>DeWalt DC223KA Cordless SDS Rotary </p>
+<div class="pro_mrp">$1228.80</div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+
+ 
+</div>
+<div class="Clear"></div>
+</div>
+</li>
+
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_7.png" alt=""></div> 
+<div class="pro_detail">
+<p>DeWalt DC223KA Cordless SDS Rotary </p>
+<div class="pro_mrp">$113.91 </div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+ 
+</div>
+</div>
+</li>
+
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_8.png" alt=""></div> 
+<div class="pro_detail">
+<p>Goldblatt 05116 Texture Brushes</p>
+<div class="pro_mrp">$11.01</div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+ 
+</div>
+</div>
+</li>
+
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_9.png" alt=""></div> 
+<div class="pro_detail">
+<p>Anchor Brand 169227 Tips</p>
+<div class="pro_mrp">$5.64</div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+ 
+</div>
+</div>
+</li>
+
+<li><div class="new_promain">
+<div class="pro_img"> <img src="<?php echo $this->getSkinUrl('') ?>images/img_10.png" alt=""></div> 
+<div class="pro_detail">
+<p>General Tools IRT206 Infrared Thermometer </p>
+<div class="pro_mrp">$43.17</div>
+<input type="button" class="add_to_cart" value="Add to cart" />
+ 
+</div>
+</div>
+</li>
+
+<div class="Clear"></div>
+</ul>
+<div class="Clear"></div>
+</div>
+
+
+<!--      ///        middle right               -->
+</div>
+
+</div>
+</div>
+
+
+
+<?php echo $this->getChildHtml('footer') ?>
+<?php echo $this->getChildHtml('before_body_end') ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php /*?>
+
+
+
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col2-left-layout">
+            <div class="main">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>    
+                </div>
+                <div class="col-left sidebar"> 
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_menu')->toHtml() ?>
+<?php echo $this->getChildHtml('left') ?>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_newsletter')->toHtml() ?>
+				</div>
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body><?php */?>
+</html>

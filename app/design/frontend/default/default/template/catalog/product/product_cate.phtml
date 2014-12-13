@@ -1,0 +1,34 @@
+<div class="product_boxx">
+<div id="list_x">
+<div class="new_pro">
+<ul>
+<?php
+
+$children = Mage::getModel('catalog/category')->getCategories(2);
+$i=1;
+foreach ($children as $category):
+$category=Mage::getModel('catalog/category')->load($category->getId());
+?>
+
+
+<li>
+<div class="new_promain">
+<div class="pro_img"> <a href="<?php echo $category->getUrl() ?>"> <img src="<?php echo Mage::getBaseUrl('media').'catalog/category/'.$category->getThumbnail()  ?>" width="100" height="100" /> </a></div>
+
+<div class="pro_detail">
+<p><a href="<?php echo $category->getUrl() ?>"><?php echo $category->getName() ?></a></p>
+</div>
+
+
+</div>
+</li>
+
+
+<?php if($i%6=='0') {?>
+</ul>
+<ul>
+<?php } $i++; endforeach; ?>
+</ul>
+</div>
+</div>
+</div>

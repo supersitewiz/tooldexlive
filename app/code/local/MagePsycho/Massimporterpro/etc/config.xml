@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Massimporterpro
+ * @author     magepsycho@gmail.com
+ * @website    http://www.magepsycho.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <MagePsycho_Massimporterpro>
+            <version>0.1.5</version>
+        </MagePsycho_Massimporterpro>
+    </modules>
+    <global>
+        <models>
+            <massimporterpro>
+                <class>MagePsycho_Massimporterpro_Model</class>
+                <resourceModel>massimporterpro_mysql4</resourceModel>
+            </massimporterpro>
+            <massimporterpro_mysql4>
+                <class>MagePsycho_Massimporterpro_Model_Mysql4</class>
+                <entities>
+                    <massimporterpro>
+                        <table>mp_massimporterpro_logs</table>
+                    </massimporterpro>
+                </entities>
+            </massimporterpro_mysql4>
+        </models>
+        <resources>
+            <massimporterpro_setup>
+                <setup>
+                    <module>MagePsycho_Massimporterpro</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </massimporterpro_setup>
+            <massimporterpro_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </massimporterpro_write>
+            <massimporterpro_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </massimporterpro_read>
+        </resources>
+        <blocks>
+            <massimporterpro>
+                <class>MagePsycho_Massimporterpro_Block</class>
+            </massimporterpro>
+        </blocks>
+        <helpers>
+            <massimporterpro>
+                <class>MagePsycho_Massimporterpro_Helper</class>
+            </massimporterpro>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+			<massimporterpro>
+				<use>admin</use>
+				<args>
+					<module>MagePsycho_Massimporterpro</module>
+					<frontName>massimporterpro</frontName>
+				</args>
+			</massimporterpro>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<massimporterpro module="massimporterpro">
+				<title>Mass Importer Pro</title>
+				<sort_order>71</sort_order>
+				<children>
+					<priceupdater module="massimporterpro">
+						<title>Price Importer</title>
+						<sort_order>0</sort_order>
+						<action>massimporterpro/adminhtml_priceupdater</action>
+					</priceupdater>
+					<setting module="massimporterpro">
+						<title>Manage Settings</title>
+						<sort_order>10</sort_order>
+						<action>adminhtml/system_config/edit/section/massimporterpro</action>
+					</setting>
+				</children>
+			</massimporterpro>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<massimporterpro module="massimporterpro">
+							<title>Mass Importer Pro</title>
+							<children>
+								<priceupdater module="massimporterpro">
+									<title>Price Importer</title>
+								</priceupdater>
+								<setting module="massimporterpro">
+									<title>Manage Settings</title>
+								</setting>
+							</children>
+						</massimporterpro>
+						<system>
+							<children>
+								<config>
+									<children>
+										<magepychoinfo>
+											<title>MagePsycho Information</title>
+										</magepychoinfo>
+										<massimporterpro>
+											<title>Mass Importer Pro</title>
+										</massimporterpro>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<massimporterpro>
+					<file>massimporterpro.xml</file>
+				</massimporterpro>
+			</updates>
+		</layout>
+		<events>
+            <controller_action_predispatch>
+                <observers>
+                    <massimporterpro_controller_action_predispatch>
+						<type>singleton</type>
+                        <class>massimporterpro/observer</class>
+                        <method>preDispatchCheck</method>
+                    </massimporterpro_controller_action_predispatch>
+                </observers>
+            </controller_action_predispatch>
+			<core_block_abstract_to_html_before>
+                <observers>
+                    <massimporterpro_core_block_abstract_to_html_before>
+                        <class>massimporterpro/observer</class>
+                        <method>coreBlockAbstractToHtmlBefore</method>
+                    </massimporterpro_core_block_abstract_to_html_before>
+                </observers>
+            </core_block_abstract_to_html_before>
+        </events>
+    </adminhtml>
+    <default>
+        <massimporterpro>
+            <option>
+                <active>1</active>
+                <enable_log>1</enable_log>
+				<domain_type>1</domain_type>
+            </option>
+			<data_format>
+				<delimiter>,</delimiter>
+				<enclosure>"</enclosure>
+			</data_format>
+			<price_settings>
+				<tier_price_import_type>merge</tier_price_import_type>
+				<group_price_import_type>merge</group_price_import_type>
+				<reindex_after_import>0</reindex_after_import>
+			</price_settings>
+        </massimporterpro>
+    </default>
+</config>

@@ -1,0 +1,38 @@
+
+<script type="text/javascript">
+function toggleMenu(item,int){
+	return false;
+}
+</script>
+<!--     fotter     -->
+<div class="fotter_tol">
+<div class="fotter_main">
+
+<div class="payment_tol"><a href="#">
+<img src="http://www.tooldex.com/media/wysiwyg/payment.png" alt="" /><!--<img src="images/payment.png" width="447" height="55" alt=""> --></a> 
+<!-- START MCAFEESECURE CODE -->
+<a target="_blank" href="https://www.mcafeesecure.com/RatingVerify?ref=www.tooldex.com"><img style="margin-top:10px" width="65" height="37" border="0" src="//images.mcafeesecure.com/meter/www.tooldex.com/63.gif" alt="McAfee SECURE sites help keep you safe from identity theft, credit card fraud, spyware, spam, viruses and online scams" oncontextmenu="alert('Copying Prohibited by Law - McAfee SECURE is a Trademark of McAfee, Inc.'); return false;"></a>
+<!-- END MCAFEESECURE CODE --></div>
+<div class="fotter_right">
+<div class="fotter_menu">
+<ul>
+<ul>
+<li><a href="http://www.tooldex.com/?___SID=U">Home </a></li>
+<li><a href="http://www.tooldex.com/about?___SID=U">About Us </a></li>
+<li><a href="http://www.tooldex.com/contacts?___SID=U">Contact Us </a></li>
+<li><a href="http://www.tooldex.com/policies?___SID=U">Policies </a></li>
+</ul></ul>
+</div>
+
+<div class="copywrite_tol"> &copy; 2011 tooldex.com. All Rights Reserved.</div>
+</div>
+<div class="Clear"></div>
+</div>
+
+</div>
+
+
+<!-- wrapper -->
+</div>
+
+
